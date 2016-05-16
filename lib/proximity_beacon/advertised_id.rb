@@ -17,6 +17,32 @@ module ProximityBeacon
       end
     end
 
+    def ibeacon_ids=(value)
+      self.type = "IBEACON"
+      uuid = value[0]
+      major = value[1].to_i
+      minor = value[2].to_i
+      bytes = [uuid.gsub("-", "")].pack("H*") + [major].pack("S>") + [minor].pack("S>")
+      self.id = Base64.strict_encode64(bytes)
+    end
+
+    def altbeacon_ids=(value)
+      self.type = "ALTBEACON"
+      uuid = value[0]
+      major = value[1].to_i
+      minor = value[2].to_i
+      bytes = [uuid.gsub("-", "")].pack("H*") + [major].pack("S>") + [minor].pack("S>")
+      self.id = Base64.strict_encode64(bytes)
+    end
+
+    def eddystone_ids=(value)
+      self.type = "EDDYSTONE"
+      namespace = value[0]
+      instance = value[1]
+      bytes = [namespace + instance].pack("H*")
+      self.id = Base64.strict_encode64(bytes)
+    end
+
     def inspect
       "#<AdvertisedId type=#{type} ids=#{ids}>"
     end

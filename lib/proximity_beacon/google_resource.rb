@@ -27,7 +27,7 @@ module ProximityBeacon
           if value.nil?
             nil
           elsif value.is_a? GoogleResource
-            [attr, value.to_json]
+            [attr, value.as_json]
           else
             [attr, value]
           end
