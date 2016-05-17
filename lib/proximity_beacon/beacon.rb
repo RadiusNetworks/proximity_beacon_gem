@@ -16,6 +16,10 @@ module ProximityBeacon
       end
     end
 
+    def id
+      name.split("/")[1]
+    end
+
     def namespace
       advertised_id.ids[0]
     end

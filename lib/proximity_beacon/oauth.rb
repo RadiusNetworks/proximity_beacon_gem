@@ -69,7 +69,6 @@ module ProximityBeacon
         redirect_uri: redirect_uri,
         response_type: "code",
         client_id: client_id,
-        access_type: "offline",
       )
       "https://accounts.google.com/o/oauth2/v2/auth?#{params}"
     end

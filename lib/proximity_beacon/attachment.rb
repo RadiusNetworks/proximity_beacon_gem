@@ -35,6 +35,10 @@ module ProximityBeacon
       self.data = Base64.strict_encode64(value)
     end
 
+    def id
+      name.split("/").last
+    end
+
     def inspect
       "#<Attachment name=\"#{name}\" namespaced_type=\"#{namespace}/#{type}\">"
     end
