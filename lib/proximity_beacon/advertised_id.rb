@@ -43,6 +43,21 @@ module ProximityBeacon
       self.id = Base64.strict_encode64(bytes)
     end
 
+    def beacon_type_code
+      case type
+      when "EDDYSTONE"
+        3
+      when "IBEACON"
+        1
+      when "ALTBEACON"
+        5
+      end
+    end
+
+    def to_beacon_name
+      "beacons/#{beacon_type_code}!#{bytes.unpack("H*")[0]}"
+    end
+
     def inspect
       "#<AdvertisedId type=#{type} ids=#{ids}>"
     end

@@ -30,6 +30,12 @@ module ProximityBeacon
         response = Request.delete(uri, credentials, params)
         JSON.parse(response.body)
       end
+
+      def batch_delete(beacon_name, params = nil)
+        uri = URI(PROXIMITY_BEACON_ROOT + beacon_name + "/attachments:batchDelete")
+        response = Request.post(uri, credentials, params)
+        JSON.parse(response.body)
+      end
     end
   end
 end
