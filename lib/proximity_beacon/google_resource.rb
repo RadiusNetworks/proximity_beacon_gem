@@ -10,7 +10,8 @@ module ProximityBeacon
 
     def initialize(hash = {})
       hash.each do |key, value|
-        self.send "#{key}=", value
+        writer = "#{key}="
+        self.send(writer, value) if respond_to?(writer)
       end
     end
 
