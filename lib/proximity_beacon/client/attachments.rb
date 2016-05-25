@@ -8,7 +8,7 @@ module ProximityBeacon
         self.credentials = credentials
       end
 
-      def list(beacon_name, params = {pageSize: 1000})
+      def list(beacon_name, params = nil)
         uri = URI(PROXIMITY_BEACON_ROOT + beacon_name + "/attachments")
         response = Request.get(uri, credentials, params)
         json = JSON.parse(response.body)
