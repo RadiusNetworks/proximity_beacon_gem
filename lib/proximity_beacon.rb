@@ -2,6 +2,7 @@ require 'json'
 require 'uri'
 require 'net/http'
 require 'base64'
+require 'forwardable'
 
 require "proximity_beacon/version"
 require "proximity_beacon/client"
