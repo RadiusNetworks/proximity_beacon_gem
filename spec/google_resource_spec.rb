@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 module ProximityBeacon
-  describe GoogleResource do
+  RSpec.describe GoogleResource do
+    class Foo < GoogleResource
+      camelcase_attr_accessor :foo_bar
+    end
     let(:foo) {
-      class Foo < GoogleResource
-        camelcase_attr_accessor :foo_bar
-      end
       Foo.new
     }
 

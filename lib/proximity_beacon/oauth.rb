@@ -32,7 +32,7 @@ module ProximityBeacon
         puts("Open this URL in your browser: \"#{url}\"\n\n")
       end
       printf "Copy and paste code from web browser here: "
-      code = STDIN.gets.chomp
+      _code = STDIN.gets.chomp
     end
 
     def get_credentials(code = nil)

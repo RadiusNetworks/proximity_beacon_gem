@@ -12,22 +12,22 @@ module ProximityBeacon
 
       def self.get(uri, credentials = nil, params = nil)
         r = self.new(:get, uri, credentials, params)
-        r.perform {|r| yield r if block_given? }
+        r.perform {|req| yield req if block_given? }
       end
 
       def self.post(uri, credentials = nil, params = nil)
         r = self.new(:post, uri, credentials, params)
-        r.perform {|r| yield r if block_given? }
+        r.perform {|req| yield req if block_given? }
       end
 
       def self.put(uri, credentials = nil, params = nil)
         r = self.new(:put, uri, credentials, params)
-        r.perform {|r| yield r if block_given? }
+        r.perform {|req| yield req if block_given? }
       end
 
       def self.delete(uri, credentials = nil, params = nil)
         r = self.new(:delete, uri, credentials, params)
-        r.perform {|r| yield r if block_given? }
+        r.perform {|req| yield req if block_given? }
       end
 
       def initialize(method, uri, credentials = nil, params = nil)
