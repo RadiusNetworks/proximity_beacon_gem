@@ -8,6 +8,7 @@ module ProximityBeacon
     alias_method :name, :beacon_name
     alias_method :name=, :beacon_name=
 
+    remove_method :advertised_id=
     def advertised_id=(value)
       if value.is_a? Hash
         @advertised_id = AdvertisedId.new(value)

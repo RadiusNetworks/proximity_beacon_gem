@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module ProximityBeacon
-  describe Client do
+  RSpec.describe Client do
     let(:credentials) {
       Credentials.new(
         access_token: "TOKEN",
