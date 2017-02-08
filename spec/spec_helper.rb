@@ -103,5 +103,18 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 end
 
+# `Warning` was added in Ruby 2.4 and allows us to customize Ruby warnings
+if defined?(Warning)
+  # Use a module to prevent overwriting the original method and allowing for
+  # easy inspection of the ancestor chain to understand this has been monkey
+  # patched.
+  module RaiseOnWarnings
+    def warn(str)
+      raise SyntaxError, str, caller
+    end
+  end
+  Warning.extend RaiseOnWarnings
+end
+
 # Require our gem
 require 'proximity_beacon'
