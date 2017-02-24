@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 module ProximityBeacon
   RSpec.describe GoogleResource do
     class Foo < GoogleResource
